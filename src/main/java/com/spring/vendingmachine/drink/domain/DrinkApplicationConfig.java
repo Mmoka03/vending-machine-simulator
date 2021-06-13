@@ -1,6 +1,10 @@
 package com.spring.vendingmachine.drink.domain;
 
-import com.spring.vendingmachine.drink.domain.avart.repository.DrinkMemoryRepository;
+import com.spring.vendingmachine.drink.domain.avart.cancel.DrinkMostRecentlyCancel;
+import com.spring.vendingmachine.drink.domain.avart.cancel.design.DrinkCancel;
+import com.spring.vendingmachine.drink.domain.avart.purchase.DrinkOneByOnePurchase;
+import com.spring.vendingmachine.drink.domain.avart.purchase.design.DrinkPurchase;
+import com.spring.vendingmachine.drink.domain.avart.repository.DrinkDatabseRepository;
 import com.spring.vendingmachine.drink.domain.avart.repository.design.DrinkRepository;
 import com.spring.vendingmachine.drink.domain.service.design.DrinkService;
 import com.spring.vendingmachine.drink.domain.service.DrinkServiceImpl;
@@ -12,11 +16,21 @@ public class DrinkApplicationConfig {
 
     @Bean
     public DrinkService drinkService() {
-        return new DrinkServiceImpl(drinkRepository());
+        return new DrinkServiceImpl(drinkRepository(), drinkPurchase(), drinkCancel());
     }
 
     @Bean
     public DrinkRepository drinkRepository() {
-        return new DrinkMemoryRepository();
+        return new DrinkDatabseRepository();
+    }
+
+    @Bean
+    public DrinkPurchase drinkPurchase() {
+        return new DrinkOneByOnePurchase();
+    }
+
+    @Bean
+    public DrinkCancel drinkCancel() {
+        return new DrinkMostRecentlyCancel();
     }
 }
