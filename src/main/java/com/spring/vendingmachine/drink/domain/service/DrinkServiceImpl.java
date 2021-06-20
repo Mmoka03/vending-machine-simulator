@@ -2,7 +2,7 @@ package com.spring.vendingmachine.drink.domain.service;
 
 import com.spring.vendingmachine.drink.database.VO.DrinkTransactionVO;
 import com.spring.vendingmachine.drink.database.VO.DrinkVO;
-import com.spring.vendingmachine.drink.domain.DrinkApplicationConfig;
+import com.spring.vendingmachine.drink.domain.DrinkConfig;
 import com.spring.vendingmachine.drink.domain.avart.cancel.design.DrinkCancel;
 import com.spring.vendingmachine.drink.domain.avart.purchase.design.DrinkPurchase;
 import com.spring.vendingmachine.drink.domain.avart.repository.design.DrinkRepository;
@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class DrinkServiceImpl implements DrinkService {
 
-    AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(DrinkApplicationConfig.class);
+    AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(DrinkConfig.class);
     final DrinkRepository drinkRepository;
     final DrinkPurchase drinkPurchase;
     final DrinkCancel drinkCancel;

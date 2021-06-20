@@ -24,8 +24,13 @@ public class DrinkDatabseRepository implements DrinkRepository {
     }
 
     @Override
-    public int RegisterPurchaseHistoryList(DrinkTransactionVO item) {
-        return drinkTransactionDAO.RegisterPurchaseHistoryList(item);
+    public DrinkTransactionVO getPurchaseHistory(Long history_id) {
+        return drinkTransactionDAO.getPurchaseHistory(history_id);
+    }
+
+    @Override
+    public int RegisterPurchaseHistory(DrinkTransactionVO item) {
+        return drinkTransactionDAO.RegisterPurchaseHistory(item);
     }
 
     @Override
@@ -36,5 +41,10 @@ public class DrinkDatabseRepository implements DrinkRepository {
     @Override
     public ArrayList<DrinkVO> getDrinkList() {
         return drinkDAO.getDrinkList();
+    }
+
+    @Override
+    public Long getDrinkHistoryMaxId() {
+        return drinkTransactionDAO.getMaxId();
     }
 }

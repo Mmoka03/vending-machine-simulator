@@ -3,6 +3,7 @@ package com.spring.vendingmachine.drink.database.DAO;
 import com.spring.vendingmachine.database.access.DAOCommon;
 import com.spring.vendingmachine.drink.database.VO.DrinkVO;
 import com.spring.vendingmachine.drink.database.convert.DrinkMapParser;
+import com.spring.vendingmachine.drink_application.database.VO.DrinkApplicationVO;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -28,5 +29,15 @@ public class DrinkDAO {
         if(list.size() > 0)
             return DrinkMapParser.convertHashMapToDrinkVO(list.get(0));
         return null;
+    }
+
+    public int registrationOfDrink(DrinkVO item) {
+        String sql = "INSERT INTO DRINK VALUES(?,?,?,?,?)";
+        return dao.executeUpdateSQL(sql, item.getId(), item.getDrink_name(), item.getDrink_price(), item.getManufacturer(), item.getIssue_id());
+    }
+
+    public int updateDrink(DrinkVO item) {
+        String sql = "UPDATE DRINK SET drink_name=?, drink_price=?, manufacturer=?, issue_id=? WHERE id = ?";
+        return dao.executeUpdateSQL(sql, item.getDrink_name(), item.getDrink_price(), item.getManufacturer(), item.getIssue_id(), item.getId());
     }
 }

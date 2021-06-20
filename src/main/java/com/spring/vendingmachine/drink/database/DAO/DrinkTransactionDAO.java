@@ -32,7 +32,7 @@ public class DrinkTransactionDAO {
         return null;
     }
 
-    public int RegisterPurchaseHistoryList(DrinkTransactionVO item) {
+    public int RegisterPurchaseHistory(DrinkTransactionVO item) {
         String sql = "INSERT INTO DRINK_TRANSACTION VALUES(?,?,?,?,?,?,?)";
         return dao.executeUpdateSQL(sql, item.getId(), item.getTransaction_type(), item.getRecorded_money(), item.getRecorded_date(), item.getProduct_id(), item.getUser_id(), item.getVending_id());
     }

@@ -11,9 +11,13 @@ public interface DrinkRepository {
 
     ArrayList<DrinkTransactionVO> getUserPurchaseHistoryList(Long user_id);
 
-    int RegisterPurchaseHistoryList(DrinkTransactionVO item);
+    DrinkTransactionVO getPurchaseHistory(Long history_id);
+
+    int RegisterPurchaseHistory(DrinkTransactionVO item);
 
     DrinkVO getDrink(Long product_id);
 
     ArrayList<DrinkVO> getDrinkList();
+
+    Long getDrinkHistoryMaxId();
 }
