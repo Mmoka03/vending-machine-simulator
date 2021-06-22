@@ -25,10 +25,12 @@ public class DrinkApplicationConfig {
         return new DrinkApplicationDatabaseRepository();
     }
 
+    @Bean
     public DrinkApplicationHistory drinkApplicationHistory() {
         return new DrinkApplicationSimpleHistory();
     }
 
+    @Bean
     public DrinkApplicationManagement drinkApplicationManagement() {
         return new DrinkApplicationSimpleManagement();
     }
