@@ -31,7 +31,7 @@ public class UserDAO {
         String sql = "SELECT possession_money FROM GENERAL_USER WHERE id = ?";
         ArrayList<HashMap<String, Object>> list = dao.executeSQL(sql, user_id);
         if(list.size() > 0)
-            return UserMapParser.convertHashMapToUserVO(list.get(0)).getPossession_money();
+            return UserMapParser.convertHashMapToUserVO(list.get(0)).getPossession_money()                                                      ;
         return null;
     }
 
